@@ -1,1 +1,21 @@
-<p>home works!</p>
+<h1>Saludos</h1>
+
+<!-- Bloque opcional: tu endpoint antiguo -->
+<section *ngIf="saludo">
+  <h3>Saludo legacy (GET /saludo)</h3>
+  <p>{{ saludo }}</p>
+</section>
+
+<!-- Bloque requerido: lista desde Postgres -->
+<section>
+  <h3>Saludos desde Postgres (GET /api/saludos)</h3>
+  <p *ngIf="error" class="error">{{ error }}</p>
+
+  <ul *ngIf="saludos.length; else vacio">
+    <li *ngFor="let s of saludos">
+      <strong>#{{ s.id }}:</strong> {{ s.mensaje }}
+    </li>
+  </ul>
+
+  <ng-template #vacio><em>No hay saludos.</em></ng-template>
+</section>
