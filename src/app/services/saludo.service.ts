@@ -9,7 +9,7 @@ export interface Saludo { id: number; mensaje: string; }
 export class SaludoService {
   private http = inject(HttpClient);
 
-  private apiUrl = 'http://localhost:8080/saludo';
+  private apiUrl = 'http://localhost:8081/saludo';
 
   private apiLista = '/api/saludos';
 
